@@ -1,0 +1,68 @@
+plugins { id 'com.android.application' }
+
+def signingStore = providers.environmentVariable('SUMI_SIGNING_STORE').orNull
+def signingPassword = providers.environmentVariable('SUMI_SIGNING_STORE_PASSWORD').orNull
+def signingAlias = providers.environmentVariable('SUMI_SIGNING_KEY_ALIAS').orNull
+def signingKeyPassword = providers.environmentVariable('SUMI_SIGNING_KEY_PASSWORD').orNull
+
+android {
+ namespace 'com.sumi.vid'
+ compileSdk 35
+ buildToolsVersion '35.0.0'
+ defaultConfig {
+  applicationId 'com.sumi.vid'
+  minSdk 26
+  targetSdk 35
+  versionCode 5
+  versionName '2.2'
+  testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+ }
+ buildFeatures { buildConfig = true }
+ signingConfigs {
+  personalDistribution {
+   if (signingStore) {
+    storeFile file(signingStore)
+    storePassword signingPassword
+    keyAlias signingAlias
+    keyPassword signingKeyPassword
+   }
+  }
+ }
+ buildTypes {
+  release {
+   debuggable false
+   minifyEnabled false
+   if (signingStore) signingConfig signingConfigs.personalDistribution
+  }
+ }
+ testOptions {
+  unitTests.includeAndroidResources = true
+  unitTests.all {
+   maxHeapSize = '2g'
+   systemProperty 'robolectric.dependency.repo.url', 'https://repo.maven.apache.org/maven2'
+   ['http.proxyHost','http.proxyPort','https.proxyHost','https.proxyPort','javax.net.ssl.trustStore'].each { key -> if(System.getProperty(key))systemProperty key,System.getProperty(key) }
+   jvmArgs '--add-opens=java.base/java.lang=ALL-UNNAMED','--add-opens=java.base/java.util=ALL-UNNAMED','--add-opens=java.base/java.io=ALL-UNNAMED','--add-opens=java.base/java.net=ALL-UNNAMED','--add-opens=java.base/java.security=ALL-UNNAMED','--add-opens=java.base/java.text=ALL-UNNAMED','--add-opens=java.base/jdk.internal.access=ALL-UNNAMED','--add-opens=java.desktop/java.awt.font=ALL-UNNAMED','--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED'
+  }
+ }
+ compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
+
+def verifyDistributionSigning = tasks.register('verifyDistributionSigning') {
+ doLast {
+  if (!signingStore || !file(signingStore).isFile() || !signingPassword || !signingAlias || !signingKeyPassword) {
+   throw new GradleException('Signed distribution requires SUMI_SIGNING_STORE, SUMI_SIGNING_STORE_PASSWORD, SUMI_SIGNING_KEY_ALIAS and SUMI_SIGNING_KEY_PASSWORD. Use the private build backup for update compatibility.')
+  }
+ }
+}
+tasks.matching { it.name == 'packageRelease' }.configureEach { dependsOn verifyDistributionSigning }
+
+dependencies {
+ implementation 'androidx.core:core:1.9.0'
+ implementation 'androidx.media3:media3-exoplayer:1.5.1'
+ implementation 'androidx.media3:media3-exoplayer-hls:1.5.1'
+ implementation 'androidx.media3:media3-exoplayer-dash:1.5.1'
+ implementation 'androidx.media3:media3-ui:1.5.1'
+ testImplementation 'junit:junit:4.13.2'
+ testImplementation 'org.robolectric:robolectric:4.17'
+ testImplementation 'org.mockito:mockito-core:4.11.0'
+}

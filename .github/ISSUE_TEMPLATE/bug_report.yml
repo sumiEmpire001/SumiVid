@@ -1,0 +1,32 @@
+name: Bug report
+description: Report a reproducible Sumi Vid problem.
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Sumi Vid version
+      placeholder: '2.2'
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Phone model and Android version
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Describe what you tapped and what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+  - type: textarea
+    id: media
+    attributes:
+      label: Media details, if relevant
+      description: File extension, codec if known, and whether other videos play. Do not attach private videos.

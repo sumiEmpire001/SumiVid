@@ -1,0 +1,2 @@
+SumiVid-v2.2.apk SHA-256: e52057be1ce97175c5b24e15ff91be7fc143d0e1e157ee9be613c8c9beeceaa6
+Signing certificate SHA-256: 6ede7580ef65c8245e817ec4638b74f61ba6ee2ad9127c041b3545d1dd065932

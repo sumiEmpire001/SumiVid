@@ -1,0 +1,6 @@
+Sumi Vid uses AndroidX Media3 and AndroidX support libraries, copyright The Android Open Source Project, licensed under the Apache License, Version 2.0. A copy is included as APACHE-2.0.txt.
+
+Media3: https://github.com/androidx/media
+AndroidX: https://android.googlesource.com/platform/frameworks/support/
+Kotlin standard library, copyright JetBrains s.r.o. and Kotlin Programming Language contributors, Apache License 2.0.
+Guava listenablefuture, copyright Google LLC, Apache License 2.0.
