@@ -6,7 +6,7 @@ Sumi Vid plays local videos and direct HTTPS streams, with a searchable library,
 
 | Project | Details |
 | --- | --- |
-| Current app version | 2.2 |
+| Current app version | 2.3 |
 | Minimum Android version | Android 8.0 / API 26 |
 | Language | Java 17 |
 | Playback | AndroidX Media3 ExoPlayer 1.5.1 |
@@ -35,7 +35,7 @@ chmod +x gradlew
 
 The development APK is written to `app/build/outputs/apk/debug/app-debug.apk`. It uses the builder's debug certificate and cannot be assumed to update an existing personal installation signed by the maintainer. Use the matching private key for compatible release updates; see [BUILDING.md](BUILDING.md).
 
-GitHub Actions is configured to build the development APK, run tests and upload reports on pushes and pull requests. No signing secrets are needed by this workflow. A fresh GitHub Actions run has not yet been verified for this repository.
+GitHub Actions is configured to build the development APK, run tests and upload reports on pushes and pull requests. No signing secrets are needed by this workflow.
 
 ## Verification and limitations
 

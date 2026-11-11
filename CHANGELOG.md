@@ -1,3 +1,7 @@
+# Sumi Vid 2.3
+
+- Remove the full-frame dark overlay from playback controls so the video keeps its original brightness when controls appear.
+
 # Sumi Vid 2.2 — final personal installation candidate
 
 - Package a signed release variant with debugging disabled.

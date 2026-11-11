@@ -160,6 +160,10 @@ public class PlayerActivity extends Activity {
     Ui.insets(root);
     setContentView(root);
     view = new PlayerView(this);
+    // Media3 dims the entire frame when its controls are visible. Keep the
+    // video unobscured while retaining the separate top and bottom control bars.
+    View controlsBackground = view.findViewById(androidx.media3.ui.R.id.exo_controls_background);
+    if (controlsBackground != null) controlsBackground.setBackground(null);
     view.setResizeMode(
         new int[] {
               AspectRatioFrameLayout.RESIZE_MODE_FIT,

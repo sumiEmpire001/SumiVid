@@ -122,6 +122,17 @@ public class AndroidRegressionTest {
   }
 
   @Test
+  public void playbackControlsDoNotDimTheVideoFrame() {
+    try (ActivityController<Harness> c = harness()) {
+      c.get().view.showController();
+      View background =
+          c.get().view.findViewById(androidx.media3.ui.R.id.exo_controls_background);
+      assertNotNull(background);
+      assertNull(background.getBackground());
+    }
+  }
+
+  @Test
   public void stoppedDialogsCannotTargetReleasedPlayer() {
     try (ActivityController<Harness> c = harness()) {
       c.get().speeds();
