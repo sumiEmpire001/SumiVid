@@ -1,4 +1,11 @@
-# Sumi Vid 2.2 final installation build — 31 October 2026
+# Sumi Vid 2.3 verification
+
+- [GitHub Actions](https://github.com/sumiEmpire001/SumiVid/actions/runs/43121266478) passed Android lint, the development APK build, and all 63 automated tests on the v2.3 source commit.
+- The new regression test verifies that the player controls have no full-frame dimming background on API 26, 28, and 35.
+- The signed release APK built successfully with `assembleRelease`. Its signature and manifest were checked for the original signing certificate, package `com.sumi.vid`, version 2.3 (code 6), and minimum Android API 26. Debugging is disabled.
+- On-device rendering, hardware decoding, and any remaining flicker still need verification on a physical phone.
+
+## Previous verification for Sumi Vid 2.2 — 31 October 2026
 
 ## Verified
 

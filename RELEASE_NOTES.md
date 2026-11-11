@@ -1,17 +1,15 @@
-# Sumi Vid 2.2
+# Sumi Vid 2.3
 
-## Install and share
+The video keeps its original brightness when the playback controls appear. This release removes the dark layer that covered the full picture.
 
-Open SumiVid-v2.2.apk on Android 8.0 or newer. Allow installation from your chosen browser or file manager when Android prompts. Install over the current Sumi Vid app; no uninstall or data reset is needed. Share only the APK with friends. Source and private signing backups are developer materials.
+## Install or share
 
-The release keeps local video browsing, thumbnails, favourites, playlists, continue watching, seeking and gesture controls, subtitles, speed and fit settings, sleep timer, repeat/shuffle, floating playback, HTTPS streaming, library filters and searchable settings.
+Open `SumiVid-v2.3.apk` on Android 8.0 or newer. If Sumi Vid is already installed from an earlier signed build, tap **Update** to keep your settings and playlists. You can send the APK to a friend for a fresh install.
 
-The corrections documented in BUG_FIXES.md remain included. See TESTING.md for the exact verification results.
+The [checksums](RELEASE_CHECKSUMS.txt) identify the APK and its signing certificate. The certificate matches version 2.2.
 
-## Scope of finalization
+## Check on your phone
 
-This is a signed, non-debuggable personal installation build with the same certificate as earlier versions. It is not a declaration that every codec or device has been verified. No physical phone is connected to this build environment. Check local video/audio playback, subtitles, headset routing and picture-in-picture on target phones before wider production distribution. No app-store submission was performed.
+Play a video that previously looked dim. Tap once to show the controls and again to hide them. The picture brightness should stay the same. If you still see flicker, a color change, or blur, record your phone model, Android version, the file format, and whether the issue happens with the controls hidden.
 
-## If something fails on a phone
-
-Record the phone model and Android version, the Sumi Vid version, what you tapped, and the exact error or screenshot. For playback problems, include the file extension and whether other videos play. Avoid uninstalling first, because that removes local app preferences and playlists.
+See [verification results](TESTING.md) for automated coverage and device checks still to do.

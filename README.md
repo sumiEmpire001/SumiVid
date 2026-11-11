@@ -39,7 +39,7 @@ GitHub Actions is configured to build the development APK, run tests and upload 
 
 ## Verification and limitations
 
-The v2.2 personal release build passed **60 automated checks**, including Android-framework configurations for API 26, 28 and 35, provider/scan regressions and playback/queue/settings rules. See [TESTING.md](TESTING.md) for scope and [BUG_FIXES.md](BUG_FIXES.md) for the five reproduced defects and their corrections.
+The v2.3 Android build passed lint and all 63 automated tests. The signed APK uses the original certificate for update compatibility. See [TESTING.md](TESTING.md) for coverage and [RELEASE_NOTES.md](RELEASE_NOTES.md) for the installation steps.
 
 Framework simulation and real-engine construction tests do not certify hardware decoding. Actual video frames, audio output, Bluetooth behaviour, OEM permissions, battery use and physical-phone performance still need device testing. File formats depend on the phone's codecs. Casting, a private vault, a bundled software codec pack and a background-audio service are not included.
 
